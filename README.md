@@ -28,23 +28,24 @@ Let’s say we want to make our site a platform where a user can open an Account
 * Move to the directory of manage.py file and make a new app <br>
   ```python manage.py startapp crudApp```
 	* Don’t forget to add your new app to the Installed app. Append crudApp/settings.py as follows <br>
-	**`settings.py`**
+	**`settings.py`** 
 
-	```python
-		INSTALLED_APPS = [  
-		      'django.contrib.admin',  
-		      'django.contrib.auth',  
-		      'django.contrib.contenttypes',  
-		      'django.contrib.sessions',  
-		      'django.contrib.messages',  
-		      'django.contrib.staticfiles',  
-		      'crudApp',  
-		     ] 
-	```
+```python
+	INSTALLED_APPS = [  
+	      'django.contrib.admin',  
+	      'django.contrib.auth',  
+	      'django.contrib.contenttypes',  
+	      'django.contrib.sessions',  
+	      'django.contrib.messages',  
+	      'django.contrib.staticfiles',  
+	      'crudApp',  
+	     ] 
+```
   
 ##### Making Models for crudApp
   * We are making a model or database table for our app.<br>
-  **`models.py`**
+  **`models.py`** 
+  
 ```python
 from django.db import models
 
@@ -67,23 +68,22 @@ from django.db import models
 * We also need to create a simple form to perform CRUD operations. Create a new python file inside your app and name it 		   forms.py. Append the following code to it.<br>
 	**`forms.py`**
     
-	```python
-		   from django.forms import ModelForm
-		   from appName.models import userdata
-		   class userform(ModelForm):
-		   class Meta:
-			model = userdata
-			fields = '__all__'
-	```
+```python
+	   from django.forms import ModelForm
+	   from appName.models import userdata
+	   class userform(ModelForm):
+	   class Meta:
+		model = userdata
+		fields = '__all__'
+```
 
 ##### Registering Model in django Admin
 * Here we are editing admin.py existing in app folder. Import the model you want to register in the admin.<br>
 	**`admin.py`**
-	
-	```python
-	   from crudApp.models import userdata
-	   admin.site.register(userdata)
-	```
+```python
+   from crudApp.models import userdata
+   admin.site.register(userdata)
+```
 ##### Makemigrations and migrate
 * To implement all of this, run these commands in the command line
 
