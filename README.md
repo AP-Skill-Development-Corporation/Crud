@@ -22,9 +22,9 @@ Delete|DELETE|DELETE
 Let’s say we want to make our site a platform where a user can open an Account. Nothing complex, we’ll just let a user add, edit and delete the Books. Let’s get started.
 
 ### Making CRUD application
-* Create a new project by executing the following command <br>
+##### Create a new project by executing the following command <br>
   ```django-admin startproject crudProject```
-* Move to the directory of manage.py file and make a new app <br>
+##### Move to the directory of manage.py file and make a new app <br>
   ```python manage.py startapp crudApp```
 	* Don’t forget to add your new app to the Installed app. Append crudApp/settings.py as follows <br>
 
@@ -40,7 +40,7 @@ Let’s say we want to make our site a platform where a user can open an Account
 		     ] 
 		  ```
   
-* Making Models for crudApp
+##### Making Models for crudApp
   * We are making a model or database table for our app.
   ```
   class userdata(models.Model):
@@ -53,21 +53,21 @@ Let’s say we want to make our site a platform where a user can open an Account
         gender = models.CharField(max_length=10,choices=gender_vals )
         date_of_birth = models.DateField(null=True)		
         def __str__(self):
-        	return self.firstName+' '+self.lastName+' '+self.mailId+' '+str(self.phone)+' '+str(self.age)+' '+self.gender+' '+self.date_of_birth
-	```
-  
-  
-* Making Model Forms in app
-    * We also need to create a simple form to perform CRUD operations. Create a new python file inside your app and name it 		       forms.py. Append the following code to it.<br>
-	```
-	   from django.forms import ModelForm
-	   from appName.models import userdata
-	   class userform(ModelForm):
-	   class Meta:
-		model = userdata
-		fields = '__all__'
-	```
+        	return self.firstName+' '+self.lastName+' '+self.mailId+' '+str(self.phone)+' '+str(self.age)+' '+self.gender+' '+self.date_of_birth```
 
+  
+*  Making Model Forms in app
+    * We also need to create a simple form to perform CRUD operations. Create a new python file inside your app and name it 		       forms.py. Append the following code to it.<br>
+		```
+		   from django.forms import ModelForm
+		   from appName.models import userdata
+		   class userform(ModelForm):
+		   class Meta:
+			model = userdata
+			fields = '__all__'
+		```
+
+* 
 * **makemigrations** : It is used to create a migration file that contains code for the tabled schema of a model. <br>
 	```python manage.py makemigrations```
 
