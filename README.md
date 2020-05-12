@@ -26,19 +26,19 @@ Let’s say we want to make our site a platform where a user can open an Account
   ```django-admin startproject crudProject```
 * Move to the directory of manage.py file and make a new app <br>
   ```python manage.py startapp crudApp```
-* Don’t forget to add your new app to the Installed app. Append crudApp/settings.py as follows <br>
+	* Don’t forget to add your new app to the Installed app. Append crudApp/settings.py as follows <br>
 
-  ```
-  INSTALLED_APPS = [  
-      'django.contrib.admin',  
-      'django.contrib.auth',  
-      'django.contrib.contenttypes',  
-      'django.contrib.sessions',  
-      'django.contrib.messages',  
-      'django.contrib.staticfiles',  
-      'crudApp',  
-     ] 
-  ```
+		  ```
+		  INSTALLED_APPS = [  
+		      'django.contrib.admin',  
+		      'django.contrib.auth',  
+		      'django.contrib.contenttypes',  
+		      'django.contrib.sessions',  
+		      'django.contrib.messages',  
+		      'django.contrib.staticfiles',  
+		      'crudApp',  
+		     ] 
+		  ```
   
 * Making Models for crudApp
   * We are making a model or database table for our app.
@@ -56,12 +56,19 @@ Let’s say we want to make our site a platform where a user can open an Account
         	return self.firstName+' '+self.lastName+' '+self.mailId+' '+str(self.phone)+' '+str(self.age)+' '+self.gender+' '+self.date_of_birth
 	```
   
+  
+* We also need to create a simple form to perform CRUD operations. Create a new python file inside your app and name it forms.py. Append the following code to it.<br>
+	```
+	
+	```
+
 * **makemigrations** : It is used to create a migration file that contains code for the tabled schema of a model. <br>
 	```python manage.py makemigrations```
 
 * **migrate** : It creates table according to the schema defined in the migration file. <br>
 	```python manage.py migrate```
 
+* 
 
 
 
