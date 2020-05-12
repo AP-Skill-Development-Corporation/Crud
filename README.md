@@ -1,5 +1,5 @@
 ## Crud
-Django is based on MVT (Model View Template) architecture and revolves around CRUD operations. In general CRUD means performing Create, Retrieve, Update and Delete operations on a table in a database.
+CRUD stands for Create, Read, Update & Delete. These are the four basic operations which are executed on Database Models. We are developing a web app which is capable of performing these operations.
 
 
 ![](https://github.com/lavanya-Mercy/Crud/blob/master/curddd.jpg) 
