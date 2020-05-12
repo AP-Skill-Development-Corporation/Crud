@@ -29,7 +29,7 @@ Let’s say we want to make our site a platform where a user can open an Account
   ```python manage.py startapp crudApp```
 	* Don’t forget to add your new app to the Installed app. Append crudApp/settings.py as follows <br>
 
-		```
+		```python
 		  INSTALLED_APPS = [  
 		      'django.contrib.admin',  
 		      'django.contrib.auth',  
@@ -42,7 +42,7 @@ Let’s say we want to make our site a platform where a user can open an Account
 		```
   
 ##### Making Models for crudApp
-  * We are making a model or database table for our app.
+  * We are making a model or database table for our app.<br>
   **`models.py`**
 ```python
 from django.db import models
@@ -65,7 +65,7 @@ from django.db import models
 
 * We also need to create a simple form to perform CRUD operations. Create a new python file inside your app and name it 		   forms.py. Append the following code to it.<br>
     
-	```
+	```python
 		   from django.forms import ModelForm
 		   from appName.models import userdata
 		   class userform(ModelForm):
@@ -76,7 +76,7 @@ from django.db import models
 
 ##### Registering Model in django Admin
 * Here we are editing admin.py existing in app folder. Import the model you want to register in the admin.
-	```
+	```python
 	   from crudApp.models import userdata
 	   admin.site.register(userdata)
 	```
