@@ -9,7 +9,11 @@ CRUD stands for Create, Read, Update & Delete. These are the four basic operatio
 **Update**   – update or edit existing entries in a table in the database. <br>
 **Delete**   – delete, deactivate, or remove existing entries in a table in the database. <br>
 
+Let’s say we want to make our site a platform where a user can add their favorite Books. Nothing complex, we’ll just let a user add, edit and delete the Books. Let’s get started.
 
+### Making CRUD application
+* Create a new project by executing the following command
+  ```djhj```
 
 
 
