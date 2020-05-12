@@ -84,16 +84,16 @@ admin.site.register(userdata)
 ##### Makemigrations and migrate
 * To implement all of this, run these commands in the command line
 
-* makemigrations : It is used to create a migration file that contains code for the tabled schema of a model. <br>
+* Makemigrations : It is used to create a migration file that contains code for the tabled schema of a model. <br>
 	```python manage.py makemigrations```
 
-* migrate : It creates table according to the schema defined in the migration file. <br>
+* Migrate : It creates table according to the schema defined in the migration file. <br>
 	```python manage.py migrate```
 
 ##### Making View Functions for Django crudApp
 * The view functions are our actual CRUD operations in Django. Now, we are editing views.py in app folder
 * **Create Data :** 
-	* 
+	
 
 
 
