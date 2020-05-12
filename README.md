@@ -5,3 +5,5 @@ Django is based on MVT (Model View Template) architecture and revolves around CR
 ![](https://github.com/lavanya-Mercy/Crud/blob/master/curddd.jpg) 
 
 
+
+
