@@ -79,6 +79,7 @@ from django.db import models
 ##### Registering Model in django Admin
 * Here we are editing admin.py existing in app folder. Import the model you want to register in the admin.<br>
 	**`admin.py`**
+	
 	```python
 	   from crudApp.models import userdata
 	   admin.site.register(userdata)
