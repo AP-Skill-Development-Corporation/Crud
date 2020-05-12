@@ -58,7 +58,7 @@ Let’s say we want to make our site a platform where a user can open an Account
 	``` 
 
   
-*  Making Model Forms in app
+#####  Making Model Forms in app
     * We also need to create a simple form to perform CRUD operations. Create a new python file inside your app and name it 		       forms.py. Append the following code to it.<br>
 		```
 		   from django.forms import ModelForm
@@ -69,7 +69,14 @@ Let’s say we want to make our site a platform where a user can open an Account
 			fields = '__all__'
 		```
 
-* 
+##### Registering Model in django Admin
+* Here we are editing admin.py existing in app folder. Import the model you want to register in the admin.
+	```
+		from crudApp.models import userdata
+		admin.site.register(userdata)
+	```
+##### Makemigrations and migrate
+* To implement all of this, run these commands in the command line
 * **makemigrations** : It is used to create a migration file that contains code for the tabled schema of a model. <br>
 	```python manage.py makemigrations```
 
