@@ -16,6 +16,16 @@ Let’s say we want to make our site a platform where a user can add their favor
   ```django-admin startproject crudProject```
 * Move to the directory of manage.py file and make a new app <br>
   ```python manage.py startapp crudApp```
+* Don’t forget to add your new app to the Installed app. Append crudApp/settings.py as follow,
+  ```INSTALLED_APPS = [  
+      'django.contrib.admin',  
+      'django.contrib.auth',  
+      'django.contrib.contenttypes',  
+      'django.contrib.sessions',  
+      'django.contrib.messages',  
+      'django.contrib.staticfiles',  
+      'crudApp',  
+     ] ```
   
 
 
