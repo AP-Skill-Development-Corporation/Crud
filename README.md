@@ -56,6 +56,12 @@ Let’s say we want to make our site a platform where a user can open an Account
         	return self.firstName+' '+self.lastName+' '+self.mailId+' '+str(self.phone)+' '+str(self.age)+' '+self.gender+' '+self.date_of_birth
 	```
   
-  
+* **makemigrations** : It is used to create a migration file that contains code for the tabled schema of a model. <br>
+	```python manage.py makemigrations```
+
+* **migrate** : It creates table according to the schema defined in the migration file. <br>
+	```python manage.py migrate```
+
+
 
 
