@@ -11,7 +11,11 @@ CRUD stands for Create, Read, Update & Delete. These are the four basic operatio
 
 Operation|Sql|Http
 ----|----|----
-Create|Insert| Put
+Create|INSERT| PUT/POST
+Read|SELECT|GET
+Update|UPDATE|PUT/PATCH
+Delete|DELETE|DELETE
+
 
 
 
