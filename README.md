@@ -31,15 +31,15 @@ Let’s say we want to make our site a platform where a user can open an Account
 	**`settings.py`** 
 
 ```python
-	INSTALLED_APPS = [  
-	      'django.contrib.admin',  
-	      'django.contrib.auth',  
-	      'django.contrib.contenttypes',  
-	      'django.contrib.sessions',  
-	      'django.contrib.messages',  
-	      'django.contrib.staticfiles',  
-	      'crudApp',  
-	     ] 
+INSTALLED_APPS = [  
+      'django.contrib.admin',  
+      'django.contrib.auth',  
+      'django.contrib.contenttypes',  
+      'django.contrib.sessions',  
+      'django.contrib.messages',  
+      'django.contrib.staticfiles',  
+      'crudApp',  
+     ] 
 ```
   
 ##### Making Models for crudApp
@@ -69,20 +69,20 @@ from django.db import models
 	**`forms.py`**
     
 ```python
-	   from django.forms import ModelForm
-	   from appName.models import userdata
-	   class userform(ModelForm):
-	   class Meta:
-		model = userdata
-		fields = '__all__'
+   from django.forms import ModelForm
+   from appName.models import userdata
+   class userform(ModelForm):
+   class Meta:
+	model = userdata
+	fields = '__all__'
 ```
 
 ##### Registering Model in django Admin
 * Here we are editing admin.py existing in app folder. Import the model you want to register in the admin.<br>
 	**`admin.py`**
 ```python
-   from crudApp.models import userdata
-   admin.site.register(userdata)
+from crudApp.models import userdata
+admin.site.register(userdata)
 ```
 ##### Makemigrations and migrate
 * To implement all of this, run these commands in the command line
