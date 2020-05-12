@@ -19,7 +19,7 @@ Delete|DELETE|DELETE
 
 
 
-Let’s say we want to make our site a platform where a user can add their favorite Books. Nothing complex, we’ll just let a user add, edit and delete the Books. Let’s get started.
+Let’s say we want to make our site a platform where a user can open an Account. Nothing complex, we’ll just let a user add, edit and delete the Books. Let’s get started.
 
 ### Making CRUD application
 * Create a new project by executing the following command <br>
@@ -40,6 +40,22 @@ Let’s say we want to make our site a platform where a user can add their favor
      ] 
   ```
   
-
+* Making Models for crudApp
+  * We are making a model or database table for our app.
+  ```
+  class userdata(models.Model):
+        gender_vals = [('Male','Male'),('FeMale','FeMale')]
+        firstName = models.CharField(max_length=100)
+        lastName = models.CharField(max_length=100)
+        mailId = models.CharField(max_length=100)
+        phone = models.CharField(max_length=10)
+        age = models.IntegerField(null=True)
+        gender = models.CharField(max_length=10,choices=gender_vals )
+        date_of_birth = models.DateField(null=True)		
+        def __str__(self):
+        	return self.firstName+' '+self.lastName+' '+self.mailId+' '+str(self.phone)+' '+str(self.age)+' '+self.gender+' '+self.date_of_birth
+	```
+  
+  
 
 
