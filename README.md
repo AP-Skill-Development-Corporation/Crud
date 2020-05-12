@@ -47,15 +47,18 @@ Let’s say we want to make our site a platform where a user can open an Account
 ```python
 from django.db import models
 
-class Register(models.Model):
-    firstName = models.CharField(max_length=100)
-    lastName = models.CharField(max_length=100)
-    emailId = models.MailField(null = True)
-    phoneNo = models.CharField(max_length=10)
-    age = models.IntegerField(null=True)
+ class userdata(models.Model):
+		gender_vals = [('Male','Male'),('FeMale','FeMale')]
+		firstName = models.CharField(max_length=100)
+		lastName = models.CharField(max_length=100)
+		mailId = models.CharField(max_length=100)
+		phone = models.CharField(max_length=10)
+		age = models.IntegerField(null=True)
+		gender = models.CharField(max_length=10,choices=gender_vals )
+		date_of_birth = models.DateField(null=True)		
+		def __str__(self):
+			return self.firstName+' '+self.lastName+' '+self.mailId+' '+str(self.phone)+' '+str(self.age)+' '+self.gender+' '+self.date_of_birth
 ```
-  
-	
 
   
 #####  Making Model Forms in app
