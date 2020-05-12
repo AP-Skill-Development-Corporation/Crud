@@ -1,4 +1,4 @@
-## Crud
+## CRUD
 CRUD stands for Create, Read, Update & Delete. These are the four basic operations which are executed on Database Models. We are developing a web app which is capable of performing these operations.
 
 
@@ -15,8 +15,6 @@ Create|INSERT| PUT/POST
 Read|SELECT|GET
 Update|UPDATE|PUT/PATCH
 Delete|DELETE|DELETE
-
-
 
 
 Let’s say we want to make our site a platform where a user can open an Account. Nothing complex, we’ll just let a user add, edit and delete the Books. Let’s get started.
@@ -93,7 +91,10 @@ admin.site.register(userdata)
 * **migrate** : It creates table according to the schema defined in the migration file. <br>
 	```python manage.py migrate```
 
-
+##### Making View Functions for Django crudApp
+* The view functions are our actual CRUD operations in Django. Now, we are editing views.py in app folder
+* **Create Data :** 
+	* 
 
 
 
