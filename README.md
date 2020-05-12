@@ -18,7 +18,8 @@ Let’s say we want to make our site a platform where a user can add their favor
   ```python manage.py startapp crudApp```
 * Don’t forget to add your new app to the Installed app. Append crudApp/settings.py as follows <br>
 
-  ```INSTALLED_APPS = [  
+  ```
+  INSTALLED_APPS = [  
       'django.contrib.admin',  
       'django.contrib.auth',  
       'django.contrib.contenttypes',  
@@ -26,7 +27,8 @@ Let’s say we want to make our site a platform where a user can add their favor
       'django.contrib.messages',  
       'django.contrib.staticfiles',  
       'crudApp',  
-     ] ```
+     ] 
+  ```
   
 
 
