@@ -24,7 +24,8 @@ Let’s say we want to make our site a platform where a user can open an Account
 ### Making CRUD application
 ##### Create a new project by executing the following command <br>
   ```django-admin startproject crudProject```
-##### Move to the directory of manage.py file and make a new app <br>
+##### Creating new App 
+* Move to the directory of manage.py file and make a new app <br>
   ```python manage.py startapp crudApp```
 	* Don’t forget to add your new app to the Installed app. Append crudApp/settings.py as follows <br>
 
@@ -42,18 +43,19 @@ Let’s say we want to make our site a platform where a user can open an Account
   
 ##### Making Models for crudApp
   * We are making a model or database table for our app.
-  ```
-  class userdata(models.Model):
-        gender_vals = [('Male','Male'),('FeMale','FeMale')]
-        firstName = models.CharField(max_length=100)
-        lastName = models.CharField(max_length=100)
-        mailId = models.CharField(max_length=100)
-        phone = models.CharField(max_length=10)
-        age = models.IntegerField(null=True)
-        gender = models.CharField(max_length=10,choices=gender_vals )
-        date_of_birth = models.DateField(null=True)		
-        def __str__(self):
-        	return self.firstName+' '+self.lastName+' '+self.mailId+' '+str(self.phone)+' '+str(self.age)+' '+self.gender+' '+self.date_of_birth```
+	```
+	  class userdata(models.Model):
+		gender_vals = [('Male','Male'),('FeMale','FeMale')]
+		firstName = models.CharField(max_length=100)
+		lastName = models.CharField(max_length=100)
+		mailId = models.CharField(max_length=100)
+		phone = models.CharField(max_length=10)
+		age = models.IntegerField(null=True)
+		gender = models.CharField(max_length=10,choices=gender_vals )
+		date_of_birth = models.DateField(null=True)		
+		def __str__(self):
+			return self.firstName+' '+self.lastName+' '+self.mailId+' '+str(self.phone)+' '+str(self.age)+' '+self.gender+' '+self.date_of_birth
+	``` 
 
   
 *  Making Model Forms in app
