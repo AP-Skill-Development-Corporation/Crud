@@ -14,6 +14,8 @@ Let’s say we want to make our site a platform where a user can add their favor
 ### Making CRUD application
 * Create a new project by executing the following command <br>
   ```django-admin startproject crudProject```
+* Move to the directory of manage.py file and make a new app <br>
+  ```python manage.py startapp crudApp```
   
 
 
