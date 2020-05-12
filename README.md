@@ -29,7 +29,7 @@ Let’s say we want to make our site a platform where a user can open an Account
   ```python manage.py startapp crudApp```
 	* Don’t forget to add your new app to the Installed app. Append crudApp/settings.py as follows <br>
 
-		  ```
+		```
 		  INSTALLED_APPS = [  
 		      'django.contrib.admin',  
 		      'django.contrib.auth',  
@@ -39,7 +39,7 @@ Let’s say we want to make our site a platform where a user can open an Account
 		      'django.contrib.staticfiles',  
 		      'crudApp',  
 		     ] 
-		  ```
+		```
   
 ##### Making Models for crudApp
   * We are making a model or database table for our app.
@@ -59,31 +59,34 @@ Let’s say we want to make our site a platform where a user can open an Account
 
   
 #####  Making Model Forms in app
-    * We also need to create a simple form to perform CRUD operations. Create a new python file inside your app and name it 		       forms.py. Append the following code to it.<br>
-		```
+
+* We also need to create a simple form to perform CRUD operations. Create a new python file inside your app and name it 		   forms.py. Append the following code to it.<br>
+    
+	```
 		   from django.forms import ModelForm
 		   from appName.models import userdata
 		   class userform(ModelForm):
 		   class Meta:
 			model = userdata
 			fields = '__all__'
-		```
+	```
 
 ##### Registering Model in django Admin
 * Here we are editing admin.py existing in app folder. Import the model you want to register in the admin.
 	```
-		from crudApp.models import userdata
-		admin.site.register(userdata)
+	   from crudApp.models import userdata
+	   admin.site.register(userdata)
 	```
 ##### Makemigrations and migrate
 * To implement all of this, run these commands in the command line
+
 * **makemigrations** : It is used to create a migration file that contains code for the tabled schema of a model. <br>
 	```python manage.py makemigrations```
 
 * **migrate** : It creates table according to the schema defined in the migration file. <br>
 	```python manage.py migrate```
 
-* 
+
 
 
 
