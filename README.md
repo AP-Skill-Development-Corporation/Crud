@@ -57,9 +57,15 @@ Let’s say we want to make our site a platform where a user can open an Account
 	```
   
   
-* We also need to create a simple form to perform CRUD operations. Create a new python file inside your app and name it forms.py. Append the following code to it.<br>
+* Making Model Forms in app
+    * We also need to create a simple form to perform CRUD operations. Create a new python file inside your app and name it 		       forms.py. Append the following code to it.<br>
 	```
-	
+	   from django.forms import ModelForm
+	   from appName.models import userdata
+	   class userform(ModelForm):
+	   class Meta:
+		model = userdata
+		fields = '__all__'
 	```
 
 * **makemigrations** : It is used to create a migration file that contains code for the tabled schema of a model. <br>
