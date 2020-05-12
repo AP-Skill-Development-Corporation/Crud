@@ -21,9 +21,9 @@ Let’s say we want to make our site a platform where a user can open an Account
 
 ### Making CRUD application
 ##### Create a new project by executing the following command <br>
-  ```django-admin startproject crudProject```
+ 	 ```django-admin startproject crudProject```
 ##### Creating new App 
-* Move to the directory of manage.py file and make a new app <br>
+Move to the directory of manage.py file and make a new app <br>
   ```python manage.py startapp crudApp```
 	* Don’t forget to add your new app to the Installed app. Append crudApp/settings.py as follows <br>
 	**`settings.py`** 
@@ -41,7 +41,7 @@ INSTALLED_APPS = [
 ```
   
 ##### Making Models for crudApp
-  * We are making a model or database table for our app.<br>
+We are making a model or database table for our app.<br>
   **`models.py`** 
   
 ```python
@@ -62,8 +62,7 @@ from django.db import models
 
   
 #####  Making Model Forms in app
-
-* We also need to create a simple form to perform CRUD operations. Create a new python file inside your app and name it 		   forms.py. Append the following code to it.<br>
+We also need to create a simple form to perform CRUD operations. Create a new python file inside your app and name it 		   forms.py. Append the following code to it.<br>
 	**`forms.py`**
     
 ```python
@@ -76,7 +75,7 @@ from django.db import models
 ```
 
 ##### Registering Model in django Admin
-* Here we are editing admin.py existing in app folder. Import the model you want to register in the admin.<br>
+Here we are editing admin.py existing in app folder. Import the model you want to register in the admin.<br>
 	**`admin.py`**
 ```python
 from crudApp.models import userdata
@@ -85,10 +84,10 @@ admin.site.register(userdata)
 ##### Makemigrations and migrate
 * To implement all of this, run these commands in the command line
 
-* **makemigrations** : It is used to create a migration file that contains code for the tabled schema of a model. <br>
+* makemigrations : It is used to create a migration file that contains code for the tabled schema of a model. <br>
 	```python manage.py makemigrations```
 
-* **migrate** : It creates table according to the schema defined in the migration file. <br>
+* migrate : It creates table according to the schema defined in the migration file. <br>
 	```python manage.py migrate```
 
 ##### Making View Functions for Django crudApp
