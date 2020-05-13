@@ -16,10 +16,10 @@ Let’s say we want to make our site a platform where a user can open an Account
 
 ### Making CRUD application
 ##### 1. Create a new project by executing the following command <br>
- 	 ```django-admin startproject crudProject```
+ 	 ```django-admin startproject ProjectName```
 ##### 2. Creating new App 
 Move to the directory of manage.py file and make a new app <br>
-  ```python manage.py startapp crudApp``` 
+  ```python manage.py startapp AppName``` 
   
 Don’t forget to add your new app to the Installed app. Append crudApp/settings.py as follows <br>
 **`settings.py`** 
@@ -32,31 +32,37 @@ INSTALLED_APPS = [
       'django.contrib.sessions',  
       'django.contrib.messages',  
       'django.contrib.staticfiles',  
-      'crudApp',  
+      'AppName',  
      ] 
 ```
 
   
 #####  3. Making Model Forms in app
-We also need to create a simple form to perform CRUD operations. Create a new python file inside your app and name it 		   forms.py. Append the following code to it.<br>
+A Form class describes a form and determines how it works and appears.In a similar way that a model class’s fields map to database fields, a form class’s fields map to HTML form <input> elements.
+
+For the above Registraion model, which we could use to implement “Registraion” functionality on our website: First we need to create froms.py file in our app location and import Register model class from models.py
 
 **`forms.py`**
     
 ```python
    from django.forms import ModelForm
-   from appName.models import userdata
-   class userform(ModelForm):
-   class Meta:
-	model = userdata
-	fields = '__all__'
+   from crud.models import Register
+   class registrationform(ModelForm):
+       class Meta:
+           model = Register
+           fields = '__all__'
 ```
+We need to import Django forms first (from django import forms) and our Register model (from .models import Register). Next, we have class Meta, where we tell Django which model should be used to create this form (model = Register). Finally, we can say which field(s) should end up in our form. In this scenario if we want only few fields then metion them in a list formate.
+
 
 ##### 5. Registering Model in django Admin
 Here we are editing admin.py existing in app folder. Import the model you want to register in the admin.<br>
 **`admin.py`**
 ```python
-from crudApp.models import userdata
-admin.site.register(userdata)
+from django.contrib import admin
+from crud.models import Register
+
+admin.site.register(Register)
 ```
 ##### 6. Sync with Database
 * To implement all of this, run these commands in the command line
@@ -70,10 +76,20 @@ admin.site.register(userdata)
 ##### 7. Making Views Function for Django crudApp
 * The view functions are our actual CRUD operations in Django. Now, we are editing views.py in app folder
 
+###### Read Data : 
+
+**`views.py`**
+```python
+def details(request):
+	data = Register.objects.all()
+	return render(request,'crud/details.html',{'data':data})
+```
+
+
 ###### Update Data : 
 
-**`admin.py`**
-	```
+**`viwes.py`**
+```python
 	def edit(request,id):
 		data = Register.objects.get(id=id)
 		if request.method =='POST':
@@ -83,10 +99,117 @@ admin.site.register(userdata)
 				return redirect('/crud/details')
 		form = registrationform(instance=data)
 		return render(request,'crud/edit.html',{'form':form,'data':data})
-	```
+```
+
+###### Delete Data : 
+
+**`viwes.py`**
+```python
+def delete(request,id):
+	ob = Register.objects.get(id=id)
+	if request.method == 'POST':
+		ob.delete()
+		return redirect('/crud/details')
+	return render(request,'crud/msg.html',{'info':ob})
+```
 
 
-###### Delete Data :
+##### MakiHTML web pages
+
+> **_NOTE:_** Here we are using Bootstrap 4
+
+**`details.html`**
+```
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+  	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Details Page</title>
+	<link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.min.css' %}">
+	<script type="text/javascript" src="{% static 'js/bootstarp.min.js' %}"></script>
+</head>
+<body>
+	<div class="container">
+		<div class="row justify-content-left">
+			<div class="col-sm-8">
+				<div class="card">
+					<div class="card-header">
+					User Details
+					</div>
+				<div class="card-body">
+			<table class="table table-striped responsive ">
+				{% for row in data %}
+					<tr>
+					<td>{{row.id}}</td>
+					<td>{{row.firstName}}</td>
+					<td>{{row.lastName}}</td>
+					<td>{{row.emailId}}</td>
+					<td><a class='btn btn-info'href="{%url 'edit' row.id %}">Update</a></td>
+					<td><a class='btn btn-info'href="{%url 'delete' row.id %}">Delete</a></td>
+					</tr>
+				{% endfor %}
+			</table>
+		     </div>
+		</div>
+	    </div>
+      </div>
+</div>
+</body>
+</html>
+```
+
+**`edit/id.html`**
+```
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Edit Page</title>
+</head>
+<body>
+	<form action="{% url 'edit' data.id %}" method="POST">
+	{% csrf_token %}
+	{{ form.as_p }}
+	<button type="submit">update</button>
+	</form>
+</body>
+</html>
+```
+
+**`message.html`**
+```
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+	<title>User Form</title>
+	<link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.min.css' %}">
+	<script type="text/javascript" src="{% static 'js/bootstarp.min.js' %}"></script>
+</head>
+<body>
+	<div class="container">
+		<div class="row justify-content-left">
+			<div class="card">
+				<div  class="card-body">
+					<form action="{% url 'delete' info.id %}" method="POST">
+		{% csrf_token %}
+	<h2>Are you sure to delete {{ info.firstName }}</h2>
+	<input class='btn btn-warning' type="submit" name="submit" value="Delete">
+	<a href="{% url 'details' %}" class="btn btn-info">Cancel</a>	
+</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
+
+```
+
+
+
+
 
 
 
