@@ -55,7 +55,7 @@ class Meta:
 We need to import Django forms first (from django import forms) and our Register model (from .models import Register). Next, we have class Meta, where we tell Django which model should be used to create this form (model = Register). Finally, we can say which field(s) should end up in our form. In this scenario if we want only few fields then metion them in a list formate.
 
 
-##### 5. Registering Model in django Admin
+##### 4. Registering Model in django Admin
 Here we are editing admin.py existing in app folder. Import the model you want to register in the admin.<br>
 **`admin.py`**
 ```python
@@ -64,7 +64,7 @@ from crud.models import Register
 
 admin.site.register(Register)
 ```
-##### 6. Sync with Database
+##### 5. Sync with Database
 * To implement all of this, run these commands in the command line
 
 * Makemigrations : It is used to create a migration file that contains code for the tabled schema of a model. <br>
@@ -73,10 +73,10 @@ admin.site.register(Register)
 * Migrate : It creates table according to the schema defined in the migration file. <br>
 	```python manage.py migrate```
 
-##### 7. Making Views Function for Django crud app
+##### 6. Making Views Function for Django crud app
 * The view functions are our actual CRUD operations in Django. Now, we are editing views.py in app folder
 
-###### Read Opearation : 
+###### *Read Opearation* : 
 This function is performing Read Operation. In this function, we simply retrieve all the objects in the crud table .
 
 **`views.py`**
@@ -87,7 +87,7 @@ def details(request):
 ```
 > **_NOTE:_** Querysets is used to retrieve data from Tables is Model_className.objects.all()
 
-###### Update operation : 
+###### *Update operation* : 
 This function is performing Update Operation. If the object exists it will return the form filled with the object’s information in it. The user can change the form again. In this case, there will be no creation of new registration but the editing of the existing object.
 
 **`viwes.py`**
@@ -104,7 +104,7 @@ This function is performing Update Operation. If the object exists it will retur
 ```
 > **_NOTE:_** Querysets is used to update data is Model_className.objects.get(id=1)
 
-###### Delete Operation : 
+###### *Delete Operation* : 
 
 Delete Function is the last function of the CRUD application. We are again using the same object method as with Update function. We are passing the request and id to delete.
 
@@ -119,7 +119,7 @@ def delete(request,id):
 ```
 > **_NOTE:_** Querysets is used to delete data from Tables is Model_className.objects.delete(id=1)
 
-##### 8. Enabling the Templates
+##### 7. Enabling the Templates
 
 > **_NOTE:_** Here we are using Bootstrap 4
 
@@ -239,7 +239,7 @@ This page for confirmation message, when you click the delete button in a app ob
 > **_NOTE:_** if id doesn't exit in the database in shows an error
 
 
-##### 9. Configuring URLs
+##### 8. Configuring URLs
 To present data we need to write a ‘views’ which is mapped to a URL pattern. Editing urls.py allows URL patterns to be defined.
 
 In the main url file we have to include our apps url file .For that we have to add the url.py file path
@@ -268,7 +268,7 @@ urlpatterns = [
 ]
 ```
 
-##### 10. Running Server and Testing 
+##### 9. Running Server and Testing 
 
 To test the website, start your server by
 ``` python manage.py runserver ```
