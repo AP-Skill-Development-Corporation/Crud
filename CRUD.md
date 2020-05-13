@@ -44,9 +44,9 @@ A Form class describes a form and determines how it works and appears.In a simil
 from django.forms import ModelForm
 from crud.models import Register
 class registrationform(ModelForm):
-class Meta:
-   model = Register
-   fields = '__all__'
+	class Meta:
+	   model = Register
+	   fields = '__all__'
 ```
 We need to import Django forms first (from django import forms) and our Register model (from .models import Register). Next, we have class Meta, where we tell Django which model should be used to create this form (model = Register). Finally, we can say which field(s) should end up in our form. In this scenario if we want only few fields then metion them in a list formate.
 
