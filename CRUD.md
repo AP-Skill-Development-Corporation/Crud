@@ -218,7 +218,7 @@ def delete(request,id):
 > **_NOTE:_** Add the {% csrf_token %} to every Django template you create that uses POST to submit data. This will reduce the chance of forms being hijacked by malicious users.
 
 
-###### Designing URLs 
+##### 9.Designing URLs 
 To present data we need to write a ‘views’ which is mapped to a URL pattern. Editing urls.py allows URL patterns to be defined.
 
 In the main url file we have to include our apps url file .For that we have to add the url.py file path
@@ -247,7 +247,7 @@ urlpatterns = [
 ]
 ```
 
-###### Browsing the web pages 
+##### 10.Browsing the web pages 
 Open web page with localhost and required URL given in your project  urls.py file.
 
 ``` http://127.0.0.1:8000/crud/details/ ```
