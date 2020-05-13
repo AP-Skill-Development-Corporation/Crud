@@ -249,11 +249,11 @@ Open web page with localhost and required URL given in your project  urls.py fil
 
 ![](https://github.com/lavanya-Mercy/Crud/blob/master/Crud_imgs/details.PNG)
 
-``` http://127.0.0.1:8000/crud/edit/8 ```
+``` http://127.0.0.1:8000/crud/edit/2 ```
 
 ![](https://github.com/lavanya-Mercy/Crud/blob/master/Crud_imgs/update.PNG)
 
-``` http://127.0.0.1:8000/crud/delete/6 ```
+``` http://127.0.0.1:8000/crud/delete/2 ```
 
 
 ![](https://github.com/lavanya-Mercy/Crud/blob/master/Crud_imgs/del.PNG)
