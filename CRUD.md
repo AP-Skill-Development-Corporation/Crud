@@ -9,6 +9,7 @@ CRUD stands for Create, Read, Update & Delete. These are the four basic operatio
 **Update**   – update or edit existing entries in a table in the database. <br>
 **Delete**   – delete, deactivate, or remove existing entries in a table in the database. <br>
 
+
 Majority of applications on the internet are CRUD applications. For example – Facebook uses CRUD operations to save your data on their database. You can change your profile picture that means perform the update operation. Of course, you can see the data in-app or browser which is read operation. Also, you can delete your Facebook account which is delete operation.
 
 Let’s say we want to make our site a platform where a user can open an Account. Nothing complex, we’ll just let a user add, edit and delete the Books. Let’s get started.
@@ -34,33 +35,9 @@ INSTALLED_APPS = [
       'crudApp',  
      ] 
 ```
-  
-##### 3. Making Models for crudApp
-
-Model is a blue print for how we gonna store data (Creating the structure of tables).In other words, a model is a class which is used to contain essential fields and methods. Each model class maps to a single table in the database. Let’s Create a Register model in models.py file.
-
-**`models.py`** 
-  
-```python
-from django.db import models
-
- class userdata(models.Model):
-		gender_vals = [('Male','Male'),('FeMale','FeMale')]
-		firstName = models.CharField(max_length=100)
-		lastName = models.CharField(max_length=100)
-		mailId = models.CharField(max_length=100)
-		phone = models.CharField(max_length=10)
-		age = models.IntegerField(null=True)
-		gender = models.CharField(max_length=10,choices=gender_vals )
-		date_of_birth = models.DateField(null=True)		
-		def __str__(self):
-			return self.firstName+' '+self.lastName+' '+self.mailId+' '+str(self.phone)+' '+str(self.age)+' '+self.gender+' '+self.date_of_birth
-```
-
-Each of our model fields has a related Django field type and field options. The Register model uses four different field types—CharField, DateTimeField, TextField and EmailField.
 
   
-#####  4. Making Model Forms in app
+#####  3. Making Model Forms in app
 We also need to create a simple form to perform CRUD operations. Create a new python file inside your app and name it 		   forms.py. Append the following code to it.<br>
 
 **`forms.py`**
@@ -93,8 +70,21 @@ admin.site.register(userdata)
 ##### 7. Making Views Function for Django crudApp
 * The view functions are our actual CRUD operations in Django. Now, we are editing views.py in app folder
 
-###### Update Data :
-	
+###### Update Data : 
+
+**`admin.py`**
+	```
+	def edit(request,id):
+		data = Register.objects.get(id=id)
+		if request.method =='POST':
+			form = registrationform(request.POST,instance=data)
+			if form.is_valid():
+				form.save()
+				return redirect('/crud/details')
+		form = registrationform(instance=data)
+		return render(request,'crud/edit.html',{'form':form,'data':data})
+	```
+
 
 ###### Delete Data :
 
