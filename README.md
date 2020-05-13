@@ -92,14 +92,15 @@ admin.site.register(userdata)
 
 ##### Making View Functions for Django crudApp
 * The view functions are our actual CRUD operations in Django. Now, we are editing views.py in app folder
-* ###### Create Data : 
+
+* ######Create Data : 
 	
   
-* ####### Read Data :
+* #######Read Data :
 
-* ####### Update Data :
+* #######Update Data :
 
-* ####### Delete Data :
+* #######Delete Data :
 
 
 
