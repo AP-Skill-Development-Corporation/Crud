@@ -45,12 +45,12 @@ For the above Registraion model, which we could use to implement â€œRegistraionâ
 **`forms.py`**
     
 ```python
-   from django.forms import ModelForm
-   from crud.models import Register
-   class registrationform(ModelForm):
-       class Meta:
-           model = Register
-           fields = '__all__'
+from django.forms import ModelForm
+from crud.models import Register
+class registrationform(ModelForm):
+class Meta:
+   model = Register
+   fields = '__all__'
 ```
 We need to import Django forms first (from django import forms) and our Register model (from .models import Register). Next, we have class Meta, where we tell Django which model should be used to create this form (model = Register). Finally, we can say which field(s) should end up in our form. In this scenario if we want only few fields then metion them in a list formate.
 
@@ -123,7 +123,7 @@ def delete(request,id):
 
 > **_NOTE:_** Here we are using Bootstrap 4
 
-This html page shows the details of users and also it contains two options update and delete. if we want to update the specific user details it redirect to update page and also if we want to delete the user details with user confirmation.
+This html page shows the details of users and also it contains two options update and delete. You want to update the specific user details it redirect to update page and also if we want to delete the user details with user confirmation.
 
 **`details.html`**
 ```
@@ -167,7 +167,7 @@ This html page shows the details of users and also it contains two options updat
 </html>
 ```
 
-This page shows the specific user details, here we can modify the details and update.
+This page shows the given id details.You can now change the information accordingly and update. This will change the data in the database.
 
 **`edit/id.html`**
 ```
@@ -203,7 +203,7 @@ This page shows the specific user details, here we can modify the details and up
 </html>
 ```
 
-This page for confirmation message, if the user really want to delete just click on delete it's get deleted and redirect to details page again and if the user click on cancel just redirect back to details page.
+This page for confirmation message, when you click the delete button in a app object, the object will be deleted from the database. and redirect to details page again and if the user click on cancel just redirect back to details page.
 
 **`msg.html`**
 ```
@@ -236,7 +236,7 @@ This page for confirmation message, if the user really want to delete just click
 ```
 
 
-> **_NOTE:_** 
+> **_NOTE:_** if id doesn't exit in the database in shows an error
 
 
 ##### 9. Configuring URLs
