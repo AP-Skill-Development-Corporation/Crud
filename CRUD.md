@@ -76,7 +76,8 @@ admin.site.register(Register)
 ##### 7. Making Views Function for Django crudApp
 * The view functions are our actual CRUD operations in Django. Now, we are editing views.py in app folder
 
-###### Read Data : 
+###### Read Opearation : 
+This function is performing Read Operation. In this function, we simply retrieve all the objects in the book table. Those objects are then passed to the corresponding template.
 
 **`views.py`**
 ```python
@@ -84,9 +85,10 @@ def details(request):
 	data = Register.objects.all()
 	return render(request,'crud/details.html',{'data':data})
 ```
+> **_NOTE:_** Querysets is used to retrieve data from Tables is Model_className.objects.all()
 
-
-###### Update Data : 
+###### Update operation : 
+This function is performing Update Operation. If the object exists it will return the form filled with the object’s information in it. The user can change the form again. In this case, there will be no creation of new registration but the editing of the existing object.
 
 **`viwes.py`**
 ```python
@@ -100,8 +102,11 @@ def details(request):
 		form = registrationform(instance=data)
 		return render(request,'crud/edit.html',{'form':form,'data':data})
 ```
+> **_NOTE:_** Querysets is used to update data is Model_className.objects.get(id=1)
 
-###### Delete Data : 
+###### Delete Operation : 
+
+Delete Function is the last function of the CRUD application. We are again using the same object method as with Update function. We are passing the request and id to delete.
 
 **`viwes.py`**
 ```python
@@ -112,9 +117,9 @@ def delete(request,id):
 		return redirect('/crud/details')
 	return render(request,'crud/msg.html',{'info':ob})
 ```
+> **_NOTE:_** Querysets is used to delete data from Tables is Model_className.objects.delete(id=1)
 
-
-##### 8. Enabling Templates
+##### 8. Enabling the Templates
 
 > **_NOTE:_** Here we are using Bootstrap 4
 
