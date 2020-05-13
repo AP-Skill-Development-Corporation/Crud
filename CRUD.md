@@ -1,4 +1,4 @@
-## CRUD
+## CRUD OPEARATIONS
 CRUD stands for Create, Read, Update & Delete. These are the four basic operations which are executed on Database Models. We are developing a web app which is capable of performing these operations.
 
 
@@ -9,24 +9,19 @@ CRUD stands for Create, Read, Update & Delete. These are the four basic operatio
 **Update**   – update or edit existing entries in a table in the database. <br>
 **Delete**   – delete, deactivate, or remove existing entries in a table in the database. <br>
 
-Operation|Sql|Http
-----|----|----
-Create|INSERT| PUT/POST
-Read|SELECT|GET
-Update|UPDATE|PUT/PATCH
-Delete|DELETE|DELETE
-
+Majority of applications on the internet are CRUD applications. For example – Facebook uses CRUD operations to save your data on their database. You can change your profile picture that means perform the update operation. Of course, you can see the data in-app or browser which is read operation. Also, you can delete your Facebook account which is delete operation.
 
 Let’s say we want to make our site a platform where a user can open an Account. Nothing complex, we’ll just let a user add, edit and delete the Books. Let’s get started.
 
 ### Making CRUD application
-##### Create a new project by executing the following command <br>
+##### 1. Create a new project by executing the following command <br>
  	 ```django-admin startproject crudProject```
-##### Creating new App 
+##### 2. Creating new App 
 Move to the directory of manage.py file and make a new app <br>
-  ```python manage.py startapp crudApp```
-	* Don’t forget to add your new app to the Installed app. Append crudApp/settings.py as follows <br>
-	**`settings.py`** 
+  ```python manage.py startapp crudApp``` 
+  
+Don’t forget to add your new app to the Installed app. Append crudApp/settings.py as follows <br>
+**`settings.py`** 
 
 ```python
 INSTALLED_APPS = [  
@@ -40,9 +35,9 @@ INSTALLED_APPS = [
      ] 
 ```
   
-##### Making Models for crudApp
+##### 3. Making Models for crudApp
 We are making a model or database table for our app.<br>
-  **`models.py`** 
+**`models.py`** 
   
 ```python
 from django.db import models
@@ -61,9 +56,9 @@ from django.db import models
 ```
 
   
-#####  Making Model Forms in app
+#####  4. Making Model Forms in app
 We also need to create a simple form to perform CRUD operations. Create a new python file inside your app and name it 		   forms.py. Append the following code to it.<br>
-	**`forms.py`**
+**`forms.py`**
     
 ```python
    from django.forms import ModelForm
@@ -74,14 +69,14 @@ We also need to create a simple form to perform CRUD operations. Create a new py
 	fields = '__all__'
 ```
 
-##### Registering Model in django Admin
+##### 5. Registering Model in django Admin
 Here we are editing admin.py existing in app folder. Import the model you want to register in the admin.<br>
-	**`admin.py`**
+**`admin.py`**
 ```python
 from crudApp.models import userdata
 admin.site.register(userdata)
 ```
-##### Makemigrations and migrate
+##### 6. Makemigrations and migrate
 * To implement all of this, run these commands in the command line
 
 * Makemigrations : It is used to create a migration file that contains code for the tabled schema of a model. <br>
@@ -90,12 +85,16 @@ admin.site.register(userdata)
 * Migrate : It creates table according to the schema defined in the migration file. <br>
 	```python manage.py migrate```
 
-##### Making View Functions for Django crudApp
+##### 7. Making View Functions for Django crudApp
 * The view functions are our actual CRUD operations in Django. Now, we are editing views.py in app folder
 
-###### Create Data : 
-	
-  
+###### Create Operation : 
+	* The ability of the application to store data in the database.
+	* To represent database-table data in Python objects, Django uses an intuitive system: A model class represents a database 		  table, and an instance of that class represents a particular record in the database table.
+	```
+	```
+
+
 ###### Read Data :
 
 ###### Update Data :
