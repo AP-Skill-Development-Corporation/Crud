@@ -9,10 +9,8 @@ CRUD stands for Create, Read, Update & Delete. These are the four basic operatio
 **Update**   – update or edit existing entries in a table in the database. <br>
 **Delete**   – delete, deactivate, or remove existing entries in a table in the database. <br>
 
-
+###### Example:
 Majority of applications on the internet are CRUD applications. For example – Facebook uses CRUD operations to save your data on their database. You can change your profile picture that means perform the update operation. Of course, you can see the data in-app or browser which is read operation. Also, you can delete your Facebook account which is delete operation.
-
-Let’s say we want to make our site a platform where a user can open an Account. Nothing complex, we’ll just let a user add, edit and delete the Books. Let’s get started.
 
 ### Making CRUD application
 ##### 1. Create a new project by executing the following command <br>
@@ -39,8 +37,6 @@ INSTALLED_APPS = [
   
 #####  3. Making Model Forms in app
 A Form class describes a form and determines how it works and appears.In a similar way that a model class’s fields map to database fields, a form class’s fields map to HTML form <input> elements.
-
-For the above Registraion model, which we could use to implement “Registraion” functionality on our website: First we need to create froms.py file in our app location and import Register model class from models.py
 
 **`forms.py`**
     
@@ -123,7 +119,7 @@ def delete(request,id):
 
 > **_NOTE:_** Here we are using Bootstrap 4
 
-This html page shows the details of users and also it contains two options update and delete. You want to update the specific user details it redirect to update page and also if we want to delete the user details with user confirmation.
+This html page shows the details of users. You want to update the specific user details it redirect to update page and also if we want to delete the user details with user confirmation.
 
 **`details.html`**
 ```
