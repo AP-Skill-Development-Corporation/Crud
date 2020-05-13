@@ -19,9 +19,9 @@ Let’s say we want to make our site a platform where a user can open an Account
  	 ```django-admin startproject ProjectName```
 ##### 2. Creating new App 
 Move to the directory of manage.py file and make a new app <br>
-  ```python manage.py startapp AppName``` 
+  ```python manage.py startapp crud``` 
   
-Don’t forget to add your new app to the Installed app. Append crudApp/settings.py as follows <br>
+Don’t forget to add your crud app to the Installed app. Append crudApp/settings.py as follows <br>
 **`settings.py`** 
 
 ```python
@@ -32,7 +32,7 @@ INSTALLED_APPS = [
       'django.contrib.sessions',  
       'django.contrib.messages',  
       'django.contrib.staticfiles',  
-      'AppName',  
+      'crud',  
      ] 
 ```
 
@@ -77,7 +77,7 @@ admin.site.register(Register)
 * The view functions are our actual CRUD operations in Django. Now, we are editing views.py in app folder
 
 ###### Read Opearation : 
-This function is performing Read Operation. In this function, we simply retrieve all the objects in the book table. Those objects are then passed to the corresponding template.
+This function is performing Read Operation. In this function, we simply retrieve all the objects in the crud table .
 
 **`views.py`**
 ```python
