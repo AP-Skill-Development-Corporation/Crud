@@ -207,7 +207,7 @@ def delete(request,id):
 
 ```
 
-
+> **_NOTE:_** Add the {% csrf_token %} to every Django template you create that uses POST to submit data. This will reduce the chance of forms being hijacked by malicious users.
 
 
 
