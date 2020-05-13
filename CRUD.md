@@ -268,7 +268,7 @@ urlpatterns = [
 ]
 ```
 
-##### 10.Running Server and Testing 
+##### 10. Running Server and Testing 
 
 To test the website, start your server by
 ``` python manage.py runserver ```
