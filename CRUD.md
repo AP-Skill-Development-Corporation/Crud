@@ -36,7 +36,9 @@ INSTALLED_APPS = [
 ```
   
 ##### 3. Making Models for crudApp
-We are making a model or database table for our app.<br>
+
+Model is a blue print for how we gonna store data (Creating the structure of tables).In other words, a model is a class which is used to contain essential fields and methods. Each model class maps to a single table in the database. Let’s Create a Register model in models.py file.
+
 **`models.py`** 
   
 ```python
@@ -55,9 +57,12 @@ from django.db import models
 			return self.firstName+' '+self.lastName+' '+self.mailId+' '+str(self.phone)+' '+str(self.age)+' '+self.gender+' '+self.date_of_birth
 ```
 
+Each of our model fields has a related Django field type and field options. The Register model uses four different field types—CharField, DateTimeField, TextField and EmailField.
+
   
 #####  4. Making Model Forms in app
 We also need to create a simple form to perform CRUD operations. Create a new python file inside your app and name it 		   forms.py. Append the following code to it.<br>
+
 **`forms.py`**
     
 ```python
@@ -76,7 +81,7 @@ Here we are editing admin.py existing in app folder. Import the model you want t
 from crudApp.models import userdata
 admin.site.register(userdata)
 ```
-##### 6. Makemigrations and migrate
+##### 6. Sync with Database
 * To implement all of this, run these commands in the command line
 
 * Makemigrations : It is used to create a migration file that contains code for the tabled schema of a model. <br>
@@ -85,19 +90,11 @@ admin.site.register(userdata)
 * Migrate : It creates table according to the schema defined in the migration file. <br>
 	```python manage.py migrate```
 
-##### 7. Making View Functions for Django crudApp
+##### 7. Making Views Function for Django crudApp
 * The view functions are our actual CRUD operations in Django. Now, we are editing views.py in app folder
 
-###### Create Operation : 
-	* The ability of the application to store data in the database.
-	* To represent database-table data in Python objects, Django uses an intuitive system: A model class represents a database 		  table, and an instance of that class represents a particular record in the database table.
-	```
-	```
-
-
-###### Read Data :
-
 ###### Update Data :
+	
 
 ###### Delete Data :
 
