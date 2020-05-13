@@ -73,7 +73,7 @@ admin.site.register(Register)
 * Migrate : It creates table according to the schema defined in the migration file. <br>
 	```python manage.py migrate```
 
-##### 7. Making Views Function for Django crudApp
+##### 7. Making Views Function for Django crud app
 * The view functions are our actual CRUD operations in Django. Now, we are editing views.py in app folder
 
 ###### Read Opearation : 
@@ -123,6 +123,8 @@ def delete(request,id):
 
 > **_NOTE:_** Here we are using Bootstrap 4
 
+This html page shows the details of users and also it contains two options update and delete. if we want to update the specific user details it redirect to update page and also if we want to delete the user details with user confirmation.
+
 **`details.html`**
 ```
 {% load static %}
@@ -165,26 +167,45 @@ def delete(request,id):
 </html>
 ```
 
-
+This page shows the specific user details, here we can modify the details and update.
 
 **`edit/id.html`**
 ```
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Edit Page</title>
+    <title>Updation</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
 </head>
 <body>
-	<form action="{% url 'edit' data.id %}" method="POST">
-	{% csrf_token %}
-	{{ form.as_p }}
-	<button type="submit">update</button>
-	</form>
+	<div class="container">
+		<div class="row justify-content-left">
+			<div class="card">
+			<div class="card-header bg-info">Updation Page</div>
+			<div class="card-body">
+				<form method="POST">
+					{% csrf_token %}
+					<table>
+						{{ form.as_p }}
+					</table>
+					<div class="card-footer">
+					<input class="btn btn-info" type="submit" name="Update" value="Submit">
+					</div>
+				</form>
+			</div>
+		</div>
+		</div>
+	</div>
 </body>
 </html>
 ```
 
-**`message.html`**
+This page for confirmation message, if the user really want to delete just click on delete it's get deleted and redirect to details page again and if the user click on cancel just redirect back to details page.
+
+**`msg.html`**
 ```
 {% load static %}
 <!DOCTYPE html>
@@ -215,10 +236,10 @@ def delete(request,id):
 ```
 
 
-> **_NOTE:_** Add the {% csrf_token %} to every Django template you create that uses POST to submit data. This will reduce the chance of forms being hijacked by malicious users.
+> **_NOTE:_** 
 
 
-##### 9.Designing URLs 
+##### 9. Configuring URLs
 To present data we need to write a ‘views’ which is mapped to a URL pattern. Editing urls.py allows URL patterns to be defined.
 
 In the main url file we have to include our apps url file .For that we have to add the url.py file path
@@ -247,7 +268,11 @@ urlpatterns = [
 ]
 ```
 
-##### 10.Browsing the web pages 
+##### 10.Running Server and Testing 
+
+To test the website, start your server by
+``` python manage.py runserver ```
+
 Open web page with localhost and required URL given in your project  urls.py file.
 
 ``` http://127.0.0.1:8000/crud/details/ ```
