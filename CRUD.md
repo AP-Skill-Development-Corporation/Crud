@@ -114,7 +114,7 @@ def delete(request,id):
 ```
 
 
-##### MakiHTML web pages
+##### 8. Enabling Templates
 
 > **_NOTE:_** Here we are using Bootstrap 4
 
@@ -160,7 +160,7 @@ def delete(request,id):
 </html>
 ```
 
-![](https://github.com/lavanya-Mercy/Crud/blob/master/Crud_imgs/details.PNG)
+
 
 **`edit/id.html`**
 ```
@@ -178,7 +178,6 @@ def delete(request,id):
 </body>
 </html>
 ```
-![](https://github.com/lavanya-Mercy/Crud/blob/master/Crud_imgs/update.PNG)
 
 **`message.html`**
 ```
@@ -209,12 +208,55 @@ def delete(request,id):
 </html>
 
 ```
-![](https://github.com/lavanya-Mercy/Crud/blob/master/Crud_imgs/del.PNG)
+
 
 > **_NOTE:_** Add the {% csrf_token %} to every Django template you create that uses POST to submit data. This will reduce the chance of forms being hijacked by malicious users.
 
 
+###### Designing URLs 
+To present data we need to write a ‘views’ which is mapped to a URL pattern. Editing urls.py allows URL patterns to be defined.
 
+In the main url file we have to include our apps url file .For that we have to add the url.py file path
+**`urls.py`**
+```python
+from django.contrib import admin
+from django.urls import path,include
+urlpatterns = [
+    path('admin/', admin.site.urls),
+    path('crud/',include('crud.urls')),
+
+]
+```
+Now in our app we have to create a urls.py file,and in that file we have to add the html files path.
+
+**`urls.py`**
+```python
+from django.contrib import admin
+from django.urls import path
+from crud import views
+urlpatterns = [
+	path('details/',views.details,name='details'),
+	path('edit/<int:id>',views.edit,name='edit'),
+	path('delete/<int:id>',views.delete,name='delete'),
+
+]
+```
+
+###### Browsing the web pages 
+Open web page with localhost and required URL given in your project  urls.py file.
+
+``` http://127.0.0.1:8000/crud/details/ ```
+
+![](https://github.com/lavanya-Mercy/Crud/blob/master/Crud_imgs/details.PNG)
+
+``` http://127.0.0.1:8000/crud/edit/8 ```
+
+![](https://github.com/lavanya-Mercy/Crud/blob/master/Crud_imgs/update.PNG)
+
+``` http://127.0.0.1:8000/crud/delete/6 ```
+
+
+![](https://github.com/lavanya-Mercy/Crud/blob/master/Crud_imgs/del.PNG)
 
 
 
