@@ -160,7 +160,7 @@ def delete(request,id):
 </html>
 ```
 
-![](https://github.com/lavanya-Mercy/Crud/blob/master/Crud_imgs/curddd.jpg)
+![](https://github.com/lavanya-Mercy/Crud/blob/master/Crud_imgs/details.PNG)
 
 **`edit/id.html`**
 ```
